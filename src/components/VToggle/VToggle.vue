@@ -1,13 +1,13 @@
 <template>
-  <div :class="['vts-toggle', { 'vts-toggle--open': isOpen }, classes.root]">
+  <div :class="styling.root">
     <button
       :id="`${id}-label`"
       ref="label"
       :disabled="disabled"
       :aria-controls="`${id}-content`"
       :aria-expanded="isOpen"
+      :class="styling.label"
       @click="isOpen = !isOpen"
-      :class="['vts-toggle__label', classes.label]"
     >
       <!-- @slot The content that goes inside the button -->
       <slot name="label" />
@@ -21,12 +21,12 @@
       @leave="collapse"
     >
       <div
+        v-show="isOpen && !disabled"
         :id="`${id}-content`"
         :aria-labelledby="`${id}-label`"
         :aria-hidden="!isOpen"
-        v-show="isOpen && !disabled"
         role="region"
-        :class="['vts-toggle__content', classes.content]"
+        :class="styling.content"
       >
         <!-- @slot The content that goes inside the toggleable region -->
         <slot />
@@ -51,6 +51,10 @@ export default {
 
     disabled: Boolean,
 
+    utilities: {
+      type: Object,
+      default: undefined
+    },
     classes: {
       type: Object,
       default: () => ({}),
@@ -64,6 +68,15 @@ export default {
   },
 
   computed: {
+    styling() {
+      if (this.utilities) return this.utilities
+
+      return {
+        root: ['vts-toggle', { 'vts-toggle--open': this.isOpen }, this.classes.root],
+        label: ['vts-toggle__label', this.classes.label],
+        content: ['vts-toggle__content', this.classes.content]
+      }
+    },
     id() {
       const { id } = this.$attrs
       if (id) return id

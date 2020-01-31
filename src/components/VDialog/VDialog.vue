@@ -93,8 +93,8 @@ export default {
       if (this.utilities) return this.utilities
 
       return {
-        root: ['vts-dialog', classes.root],
-        content: ['vts-dialog__content', classes.content]
+        root: ['vts-dialog', this.classes.root],
+        content: ['vts-dialog__content', this.classes.content]
       }
     }
   },

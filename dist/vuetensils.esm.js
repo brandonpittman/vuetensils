@@ -534,8 +534,8 @@ var script$2 = {
       if (this.utilities) { return this.utilities }
 
       return {
-        root: ['vts-dialog', classes.root],
-        content: ['vts-dialog__content', classes.content]
+        root: ['vts-dialog', this.classes.root],
+        content: ['vts-dialog__content', this.classes.content]
       }
     }
   },
@@ -696,7 +696,7 @@ var __vue_staticRenderFns__$1 = [];
   /* style */
   var __vue_inject_styles__$2 = function (inject) {
     if (!inject) { return }
-    inject("data-v-4c25f499_0", { source: ".vts-dialog{display:flex;align-items:center;justify-content:center;position:fixed;z-index:100;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,.4)}.vts-dialog [tabindex=\"-1\"]:focus{outline:0}.vts-dialog__content{overflow:auto;max-width:70vw;max-height:80vh;background:#fff}", map: undefined, media: undefined });
+    inject("data-v-9490a3be_0", { source: ".vts-dialog{display:flex;align-items:center;justify-content:center;position:fixed;z-index:100;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,.4)}.vts-dialog [tabindex=\"-1\"]:focus{outline:0}.vts-dialog__content{overflow:auto;max-width:70vw;max-height:80vh;background:#fff}", map: undefined, media: undefined });
 
   };
   /* scoped */
@@ -2534,11 +2534,6 @@ var __vue_staticRenderFns__$a = [];
 //
 //
 //
-//
-//
-//
-//
-//
 
 /**
  * Toggle the visibility of content. Useful for something like an FAQ page, for example. Includes ARIA attributes for expandable content and is keyboard friendly.
@@ -2555,6 +2550,10 @@ var script$d = {
 
     disabled: Boolean,
 
+    utilities: {
+      type: Object,
+      default: undefined
+    },
     classes: {
       type: Object,
       default: function () { return ({}); },
@@ -2568,6 +2567,15 @@ var script$d = {
   },
 
   computed: {
+    styling: function styling() {
+      if (this.utilities) { return this.utilities }
+
+      return {
+        root: ['vts-toggle', { 'vts-toggle--open': this.isOpen }, this.classes.root],
+        label: ['vts-toggle__label', this.classes.label],
+        content: ['vts-toggle__content', this.classes.content]
+      }
+    },
     id: function id() {
       var ref = this.$attrs;
       var id = ref.id;
@@ -2585,19 +2593,20 @@ var script$d = {
 
   methods: {
     collapse: function collapse(el) {
-      el.style.height = 0;
+      this.$refs.content.style.transform = "scaleY(0)";
     },
 
     expand: function expand(el) {
-      el.style.overflow = "hidden";
-      el.style.height = (el.scrollHeight) + "px";
+      this.$refs.content.style.transform = "scaleY(1)";
+      // el.style.overflow = "hidden"
+      // el.style.height = `${el.scrollHeight}px`
       // Force repaint to make sure the animation is triggered correctly.
-      el.scrollHeight;
+      // el.scrollHeight
     },
 
     resetHeight: function resetHeight(el) {
-      el.style.overflow = "visible";
-      el.style.height = "";
+      // el.style.overflow = "visible"
+      // el.style.height = ""
     },
   },
 };
@@ -2606,13 +2615,13 @@ var script$d = {
 var __vue_script__$d = script$d;
 
 /* template */
-var __vue_render__$b = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:['vts-toggle', { 'vts-toggle--open': _vm.isOpen }, _vm.classes.root]},[_c('button',{ref:"label",class:['vts-toggle__label', _vm.classes.label],attrs:{"id":(_vm.id + "-label"),"disabled":_vm.disabled,"aria-controls":(_vm.id + "-content"),"aria-expanded":_vm.isOpen},on:{"click":function($event){_vm.isOpen = !_vm.isOpen;}}},[_vm._t("label")],2),_vm._v(" "),_c('transition',{on:{"before-enter":_vm.collapse,"enter":_vm.expand,"after-enter":_vm.resetHeight,"before-leave":_vm.expand,"leave":_vm.collapse}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isOpen && !_vm.disabled),expression:"isOpen && !disabled"}],class:['vts-toggle__content', _vm.classes.content],attrs:{"id":(_vm.id + "-content"),"aria-labelledby":(_vm.id + "-label"),"aria-hidden":!_vm.isOpen,"role":"region"}},[_vm._t("default")],2)])],1)};
+var __vue_render__$b = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.styling.root},[_c('button',{ref:"label",class:_vm.styling.label,attrs:{"id":(_vm.id + "-label"),"disabled":_vm.disabled,"aria-controls":(_vm.id + "-content"),"aria-expanded":_vm.isOpen},on:{"click":function($event){_vm.isOpen = !_vm.isOpen;}}},[_vm._t("label")],2),_vm._v(" "),_c('transition',{attrs:{"name":"slide-fade"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isOpen && !_vm.disabled),expression:"isOpen && !disabled"}],ref:"content",class:_vm.styling.content,attrs:{"id":(_vm.id + "-content"),"aria-labelledby":(_vm.id + "-label"),"aria-hidden":!_vm.isOpen,"role":"region"}},[_vm._t("default")],2)])],1)};
 var __vue_staticRenderFns__$b = [];
 
   /* style */
   var __vue_inject_styles__$d = function (inject) {
     if (!inject) { return }
-    inject("data-v-39580eff_0", { source: ".vts-toggle__content{transition:height .3s ease}", map: undefined, media: undefined });
+    inject("data-v-d808b8d2_0", { source: ".slide-fade-enter-active{position:relative;transition:all .3s ease-in-out}.slide-fade-leave-active{position:relative;transition:all .8s ease-in-out}.slide-fade-enter,.slide-fade-leave-to{z-index:-1;opacity:0;transform:translateY(-100%)}.vts-toggle__content{transition:transform .3s ease}", map: undefined, media: undefined });
 
   };
   /* scoped */
