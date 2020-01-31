@@ -88,11 +88,9 @@ export default {
 
   methods: {
     collapse(el) {
-      this.$refs.content.style.transform = "scaleY(0)"
     },
 
     expand(el) {
-      this.$refs.content.style.transform = "scaleY(1)"
       // el.style.overflow = "hidden"
       // el.style.height = `${el.scrollHeight}px`
       // Force repaint to make sure the animation is triggered correctly.
@@ -111,13 +109,13 @@ export default {
 .slide-fade-enter-active {
   position: relative;
   z-index: -1;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .slide-fade-leave-active {
   position: relative;
   z-index: -1;
-  transition: all 0.8s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .slide-fade-enter,
@@ -129,6 +127,6 @@ export default {
 }
 
 .vts-toggle__content {
-  transition: all 300ms ease-in-out;
+  /* transition: all 300ms ease-in-out; */
 }
 </style>

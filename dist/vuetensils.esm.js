@@ -2593,11 +2593,9 @@ var script$d = {
 
   methods: {
     collapse: function collapse(el) {
-      this.$refs.content.style.transform = "scaleY(0)";
     },
 
     expand: function expand(el) {
-      this.$refs.content.style.transform = "scaleY(1)";
       // el.style.overflow = "hidden"
       // el.style.height = `${el.scrollHeight}px`
       // Force repaint to make sure the animation is triggered correctly.
@@ -2621,7 +2619,7 @@ var __vue_staticRenderFns__$b = [];
   /* style */
   var __vue_inject_styles__$d = function (inject) {
     if (!inject) { return }
-    inject("data-v-77aa30bc_0", { source: ".slide-fade-enter-active{position:relative;z-index:-1;transition:all .3s ease-in-out}.slide-fade-leave-active{position:relative;z-index:-1;transition:all .8s ease-in-out}.slide-fade-enter,.slide-fade-leave-to{position:relative;z-index:-1;opacity:0;transform:translateY(-100%)}.vts-toggle__content{transition:all .3s ease-in-out}", map: undefined, media: undefined });
+    inject("data-v-67d933fc_0", { source: ".slide-fade-enter-active{position:relative;z-index:-1;transition:all .2s ease-in-out}.slide-fade-leave-active{position:relative;z-index:-1;transition:all .2s ease-in-out}.slide-fade-enter,.slide-fade-leave-to{position:relative;z-index:-1;opacity:0;transform:translateY(-100%)}", map: undefined, media: undefined });
 
   };
   /* scoped */
