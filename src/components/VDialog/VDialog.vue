@@ -13,7 +13,7 @@
         <component
           :is="tag"
           ref="content"
-          :class="styling.root"
+          :class="styling.content"
           tabindex="-1"
           role="dialog"
         >
@@ -39,7 +39,7 @@ export default {
   },
 
   props: {
-    theme: {
+    utilities: {
       type: Object,
       default: undefined
     },
@@ -90,7 +90,7 @@ export default {
   },
   computed: {
     styling() {
-      if (theme) return theme
+      if (this.utilities) return this.utilities
 
       return {
         root: ['vts-dialog', classes.root],
@@ -148,7 +148,7 @@ export default {
       this.$emit("change", !isVisible)
     },
     onClick(event) {
-      if (event.target.classList.contains("vts-dialog") && this.dismissible) {
+      if ((event.target == this.$el) && this.dismissible) {
         this.hide()
       }
     },
