@@ -13,16 +13,11 @@
       <slot name="label" />
     </button>
 
-    <transition
-      @before-enter="collapse"
-      @enter="expand"
-      @after-enter="resetHeight"
-      @before-leave="expand"
-      @leave="collapse"
-    >
+    <transition name="slide-fade">
       <div
         v-show="isOpen && !disabled"
         :id="`${id}-content`"
+        ref="content"
         :aria-labelledby="`${id}-label`"
         :aria-hidden="!isOpen"
         role="region"
@@ -93,26 +88,47 @@ export default {
 
   methods: {
     collapse(el) {
-      el.style.height = 0
+      this.$refs.content.style.transform = "scaleY(0)"
     },
 
     expand(el) {
-      el.style.overflow = "hidden"
-      el.style.height = `${el.scrollHeight}px`
+      this.$refs.content.style.transform = "scaleY(1)"
+      // el.style.overflow = "hidden"
+      // el.style.height = `${el.scrollHeight}px`
       // Force repaint to make sure the animation is triggered correctly.
-      el.scrollHeight
+      // el.scrollHeight
     },
 
     resetHeight(el) {
-      el.style.overflow = "visible"
-      el.style.height = ""
+      // el.style.overflow = "visible"
+      // el.style.height = ""
     },
   },
 }
 </script>
 
 <style>
+.slide-fade-enter-active {
+  position: relative;
+  z-index: -1;
+  transition: all 0.3s ease-in-out;
+}
+
+.slide-fade-leave-active {
+  position: relative;
+  z-index: -1;
+  transition: all 0.8s ease-in-out;
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  position: relative;
+  z-index: -1;
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
 .vts-toggle__content {
-  transition: height 300ms ease;
+  transition: all 300ms ease-in-out;
 }
 </style>

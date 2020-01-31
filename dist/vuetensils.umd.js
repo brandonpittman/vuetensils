@@ -2627,7 +2627,7 @@
     /* style */
     var __vue_inject_styles__$d = function (inject) {
       if (!inject) { return }
-      inject("data-v-d808b8d2_0", { source: ".slide-fade-enter-active{position:relative;transition:all .3s ease-in-out}.slide-fade-leave-active{position:relative;transition:all .8s ease-in-out}.slide-fade-enter,.slide-fade-leave-to{z-index:-1;opacity:0;transform:translateY(-100%)}.vts-toggle__content{transition:transform .3s ease}", map: undefined, media: undefined });
+      inject("data-v-77aa30bc_0", { source: ".slide-fade-enter-active{position:relative;z-index:-1;transition:all .3s ease-in-out}.slide-fade-leave-active{position:relative;z-index:-1;transition:all .8s ease-in-out}.slide-fade-enter,.slide-fade-leave-to{position:relative;z-index:-1;opacity:0;transform:translateY(-100%)}.vts-toggle__content{transition:all .3s ease-in-out}", map: undefined, media: undefined });
 
     };
     /* scoped */
