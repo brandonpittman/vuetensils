@@ -77,7 +77,9 @@ export default {
       Title
     </template>
 
-    Toggled content
+    <p>
+      Toggled content
+    </p>
   </VToggle>
 </template>
 ```

@@ -208,7 +208,7 @@ export default {
   max-height: 80vh;
   border-radius: 4px;
   padding: 1rem;
-  background: #fff;
+  background-color: #fff;
 }
 
 .vts-dialog-fade-enter,
@@ -218,6 +218,6 @@ export default {
 
 .vts-dialog-fade-enter-active,
 .vts-dialog-fade-leave-active {
-  transition: all 300ms ease-out;
+  transition: all 300ms ease-in-out;
 }
 </style>

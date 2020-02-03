@@ -13,20 +13,22 @@
       <slot name="label" />
     </button>
 
-    <transition name="fade">
-      <div
-        v-show="isOpen && !disabled"
-        :id="`${id}-content`"
-        ref="content"
-        :aria-labelledby="`${id}-label`"
-        :aria-hidden="!isOpen"
-        role="region"
-        :class="styling.content"
-      >
-        <!-- @slot The content that goes inside the toggleable region -->
-        <slot />
-      </div>
-    </transition>
+    <div class="vts-dialog__wrapper">
+      <transition name="vts-toggle-fade">
+        <div
+          v-show="isOpen && !disabled"
+          :id="`${id}-content`"
+          ref="content"
+          :aria-labelledby="`${id}-label`"
+          :aria-hidden="!isOpen"
+          role="region"
+          :class="styling.content"
+        >
+          <!-- @slot The content that goes inside the toggleable region -->
+          <slot />
+        </div>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -46,10 +48,6 @@ export default {
 
     disabled: Boolean,
 
-    utilities: {
-      type: Object,
-      default: undefined
-    },
     classes: {
       type: Object,
       default: () => ({}),
@@ -64,8 +62,6 @@ export default {
 
   computed: {
     styling() {
-      if (this.utilities) return this.utilities
-
       return {
         root: ['vts-toggle', { 'vts-toggle--open': this.isOpen }, this.classes.root],
         label: ['vts-toggle__label', this.classes.label],
@@ -89,25 +85,23 @@ export default {
 </script>
 
 <style>
-.fade-enter-active {
-  position: relative;
-  z-index: -1;
-}
-
-.fade-leave-active {
-  position: relative;
-  z-index: -1;
-}
-
-.fade-enter,
-.fade-leave-to {
-  position: relative;
-  z-index: -1;
-  opacity: 0;
-  transform: translatey(-100%);
-}
-
-.vts-toggle__content {
+.vts-toggle-fade-enter-active {
   transition: all 300ms ease-in-out;
+  transform-origin: top;
+}
+
+.vts-toggle-fade-leave-active {
+  transition: all 300ms ease-in-out;
+  transform-origin: top;
+}
+
+.vts-toggle-fade-enter,
+.vts-toggle-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.vts-dialog__wrapper {
+  overflow: hidden;
 }
 </style>
