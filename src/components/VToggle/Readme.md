@@ -1,4 +1,6 @@
-### Styled Example
+# VToggle
+
+## Styled Example
 
 ```vue
 <template>
@@ -36,7 +38,7 @@ export default {}
 </styles>
 ```
 
-### Basic Usage
+## Basic Usage
 
 ```vue
 <template>
@@ -58,6 +60,6 @@ export default {}
 
 This component can accept a `classes` prop to cusomize the output HTML classes:
 
-```
+```vue
 :classes="{ root: 'root-class', label: 'label-class', content: 'content-class' }"
 ```
