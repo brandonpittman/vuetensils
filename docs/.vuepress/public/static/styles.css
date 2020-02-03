@@ -16,6 +16,8 @@ body .live-preview pre {
   background: initial;
 }
 
+@tailwind base;
+
 .styled {
   font-family: sans-serif;
 }
@@ -106,7 +108,7 @@ body .live-preview pre {
   padding: 10px;
   font-size: 18px;
   color: #fff;
-  background: darkcyan;
+  background-color: darkcyan;
   transition: border-radius 0.5s ease;
 }
 
@@ -123,19 +125,19 @@ body .live-preview pre {
 .styled .vts-file__dropzone {
   display: flex;
   justify-content: center;
-  border: 3px dashed skyblue;
+  border: 3px dashed lightblue;
   border-radius: 5px;
   padding: 30px;
-  background: lightblue;
+  background-color: lightblue;
   transition: background-color 0.2s ease;
 }
 
 .styled .vts-file--droppable .vts-file__dropzone {
-  background: skyblue;
+  background-color: lightblue;
 }
 
 .styled .vts-file--selected .vts-file__dropzone {
-  background: greenyellow;
+  background-color: lightgreen;
 }
 
 .styled .vts-input__text {
@@ -225,12 +227,6 @@ body .live-preview pre {
   padding: 5px;
 }
 
-/* .vts-toggle__content {
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  padding: 5px;
-} */
-
 .intersect-example {
   display: flex;
   align-items: center;
@@ -239,3 +235,7 @@ body .live-preview pre {
   height: 50vh;
   border: 1px solid;
 }
+
+@tailwind components;
+
+@tailwind utilities;

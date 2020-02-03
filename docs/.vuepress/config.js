@@ -24,6 +24,12 @@ const path = require("path")
 // )
 
 module.exports = {
+  postcss: {
+    plugins: [
+      require('tailwindcss'),
+      require('autoprefixer')
+    ]
+  },
   title: "Vuetensils",
   description:
     'A "naked" component library for building accessible, lightweight, on-brand applications.',
@@ -33,8 +39,8 @@ module.exports = {
     repo: "stegosource/vuetensils",
     lastUpdated: "Last Updated",
     nav: [
-      { text: "Home", link: "/" },
-      { text: "Docs", link: "/introduction" },
+      {text: "Home", link: "/"},
+      {text: "Docs", link: "/introduction"},
     ],
     sidebar: [
       "/Introduction",

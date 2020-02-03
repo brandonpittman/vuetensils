@@ -39,10 +39,6 @@ export default {
   },
 
   props: {
-    utilities: {
-      type: Object,
-      default: undefined
-    },
     /**
      * @model
      */
@@ -73,14 +69,14 @@ export default {
      */
     transitionContent: {
       type: String,
-      default: ''
+      default: 'vts-dialog-fade'
     },
     /**
      * Transition name to apply to the background.
      */
     transitionRoot: {
       type: String,
-      default: ''
+      default: 'vts-dialog-fade'
     },
 
     classes: {
@@ -90,8 +86,6 @@ export default {
   },
   computed: {
     styling() {
-      if (this.utilities) return this.utilities
-
       return {
         root: ['vts-dialog', this.classes.root],
         content: ['vts-dialog__content', this.classes.content]
@@ -190,7 +184,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .vts-dialog {
   display: flex;
   align-items: center;
@@ -208,16 +202,22 @@ export default {
   outline: 0;
 }
 
-.fader-enter,
-.fader-leave-to {
-  opacity: 0;
-}
-
 .vts-dialog__content {
   overflow: auto;
   max-width: 70vw;
   max-height: 80vh;
+  border-radius: 4px;
+  padding: 1rem;
   background: #fff;
-  transition: all 0.5s ease-out;
+}
+
+.vts-dialog-fade-enter,
+.vts-dialog-fade-leave-to {
+  opacity: 0;
+}
+
+.vts-dialog-fade-enter-active,
+.vts-dialog-fade-leave-active {
+  transition: all 300ms ease-out;
 }
 </style>

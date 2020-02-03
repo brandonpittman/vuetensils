@@ -81,7 +81,7 @@ export default {
 }
 
 .vts-dialog {
-  background: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 1.0);
 }
 
 .vts-dialog__content {
@@ -112,7 +112,7 @@ export default {
 ```vue live
 <template>
   <div>
-    <VDialog transitionContent="fader" v-model="dialog">
+    <VDialog v-model="dialog">
       This is the dialog content.
     </VDialog>
     <button @click="dialog = !dialog">Show the dialog</button>
@@ -202,7 +202,7 @@ export default {
 ```css
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 5s;
+  transition: opacity 0.5s;
 }
 
 .fade-enter,
@@ -227,6 +227,6 @@ export default {
 
 This component can accept a `classes` prop to cusomize the output HTML classes:
 
-```vue
+```
 :classes="{ root: 'root-class', content: 'content-class' }"
 ```
