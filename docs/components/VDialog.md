@@ -112,7 +112,7 @@ export default {
 ```vue live
 <template>
   <div>
-    <VDialog v-model="dialog">
+    <VDialog transitionContent="fader" v-model="dialog">
       This is the dialog content.
     </VDialog>
     <button @click="dialog = !dialog">Show the dialog</button>
@@ -202,7 +202,7 @@ export default {
 ```css
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 5s;
 }
 
 .fade-enter,
@@ -227,6 +227,6 @@ export default {
 
 This component can accept a `classes` prop to cusomize the output HTML classes:
 
-```
+```vue
 :classes="{ root: 'root-class', content: 'content-class' }"
 ```

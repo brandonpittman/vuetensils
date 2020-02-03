@@ -1,6 +1,8 @@
 # VToggle
 
-Toggle the visibility of content. Useful for something like an FAQ page, for example. Includes ARIA attributes for expandable content and is keyboard friendly.
+Toggle the visibility of content. Useful for something like an FAQ page, for
+example. Includes ARIA attributes for expandable content and is keyboard
+friendly.
 
 [Source](https://github.com/Stegosource/vuetensils/blob/master/src/components/VToggle/VToggle.vue)
 
@@ -49,7 +51,7 @@ export default {
 ```
 
 ```css
-.vts-toggle__button {
+.vts-toggle__label {
   display: block;
   width: 100%;
   border: 0;
@@ -75,7 +77,7 @@ export default {
       Title
     </template>
 
-    content here
+    Toggled content
   </VToggle>
 </template>
 ```
@@ -84,6 +86,6 @@ export default {
 
 This component can accept a `classes` prop to cusomize the output HTML classes:
 
-```
+```html
 :classes="{ root: 'root-class', label: 'label-class', content: 'content-class' }"
 ```

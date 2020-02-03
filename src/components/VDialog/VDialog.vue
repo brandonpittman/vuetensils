@@ -190,7 +190,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .vts-dialog {
   display: flex;
   align-items: center;
@@ -208,10 +208,16 @@ export default {
   outline: 0;
 }
 
+.fader-enter,
+.fader-leave-to {
+  opacity: 0;
+}
+
 .vts-dialog__content {
   overflow: auto;
   max-width: 70vw;
   max-height: 80vh;
   background: #fff;
+  transition: all 0.5s ease-out;
 }
 </style>

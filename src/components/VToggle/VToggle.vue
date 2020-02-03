@@ -13,7 +13,7 @@
       <slot name="label" />
     </button>
 
-    <transition name="slide-fade">
+    <transition name="fade">
       <div
         v-show="isOpen && !disabled"
         :id="`${id}-content`"
@@ -85,48 +85,29 @@ export default {
       )
     },
   },
-
-  methods: {
-    collapse(el) {
-    },
-
-    expand(el) {
-      // el.style.overflow = "hidden"
-      // el.style.height = `${el.scrollHeight}px`
-      // Force repaint to make sure the animation is triggered correctly.
-      // el.scrollHeight
-    },
-
-    resetHeight(el) {
-      // el.style.overflow = "visible"
-      // el.style.height = ""
-    },
-  },
 }
 </script>
 
 <style>
-.slide-fade-enter-active {
+.fade-enter-active {
   position: relative;
   z-index: -1;
-  transition: all 0.2s ease-in-out;
 }
 
-.slide-fade-leave-active {
+.fade-leave-active {
   position: relative;
   z-index: -1;
-  transition: all 0.2s ease-in-out;
 }
 
-.slide-fade-enter,
-.slide-fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   position: relative;
   z-index: -1;
   opacity: 0;
-  transform: translateY(-100%);
+  transform: translatey(-100%);
 }
 
 .vts-toggle__content {
-  /* transition: all 300ms ease-in-out; */
+  transition: all 300ms ease-in-out;
 }
 </style>
